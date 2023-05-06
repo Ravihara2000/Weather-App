@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { deviceHeight, deviceWidth } from "./Dimensions";
@@ -16,6 +17,28 @@ const color = {
 export default function Home() {
   const [city, setCity] = useState("");
 
+  const cities = [
+    {
+      name: "New Delhi",
+      image: require("./assets/image3.jpg"),
+    },
+    {
+      name: "New York",
+      image: require("./assets/image4.jpg"),
+    },
+    {
+      name: "London",
+      image: require("./assets/image5.jpg"),
+    },
+    {
+      name: "San Francisco",
+      image: require("./assets/image6.jpg"),
+    },
+    {
+      name: "New Jersy",
+      image: require("./assets/image7.jpg"),
+    },
+  ];
   return (
     <View style={styles.bgimg}>
       <ImageBackground
@@ -72,6 +95,10 @@ export default function Home() {
               <Icon name="search" size={22} color="white" />
             </TouchableOpacity>
           </View>
+          <Text style={{ color: "white", fontSize: 22, paddingHorizontal: 10 }}>
+            My Location
+            <FlatList data={cities} renderItem={() => <View></View>} />
+          </Text>
         </View>
       </View>
     </View>

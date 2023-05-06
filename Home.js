@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -6,11 +6,16 @@ import {
   ImageBackground,
   Text,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { deviceHeight, deviceWidth } from "./Dimensions";
-
+const color = {
+  white: "#FFFFFF",
+};
 export default function Home() {
+  const [city, setCity] = useState("");
+
   return (
     <View style={styles.bgimg}>
       <ImageBackground
@@ -50,16 +55,22 @@ export default function Home() {
               justifyContent: "space-between",
               alignItems: "center",
               borderRadius: 20,
-              borderEndWidth: 1,
+              borderWidth: 1,
               borderColor: "white",
+              width: 335,
+              marginTop: 10,
             }}
           >
             <TextInput
+              value={city}
+              onChangeText={(val) => setCity(val)}
               placeholder="Serach the city"
               placeholderTextColor="white"
-              style={{ paddingHorizontal: 10, color: "white" }}
+              style={{ paddingHorizontal: 10, color: "white", fontSize: 16 }}
             />
-            <Icon name="search" size={22} color="white" />
+            <TouchableOpacity onPress={() => {}}>
+              <Icon name="search" size={22} color="white" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>

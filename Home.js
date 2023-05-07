@@ -9,13 +9,15 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+
 import Icon from "react-native-vector-icons/Ionicons";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { deviceHeight, deviceWidth } from "./Dimensions";
 import Cards from "./Cards";
 const color = {
   white: "#FFFFFF",
 };
-export default function Home() {
+export default function Home(props) {
   const [city, setCity] = useState("");
 
   const cities = [
@@ -92,7 +94,11 @@ export default function Home() {
               placeholderTextColor="white"
               style={{ paddingHorizontal: 10, color: "white", fontSize: 16 }}
             />
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate("Details", { name: city })
+              }
+            >
               <Icon name="search" size={22} color="white" />
             </TouchableOpacity>
           </View>

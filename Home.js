@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { deviceHeight, deviceWidth } from "./Dimensions";
+import Cards from "./Cards";
 const color = {
   white: "#FFFFFF",
 };
@@ -42,7 +43,7 @@ export default function Home() {
   return (
     <View style={styles.bgimg}>
       <ImageBackground
-        source={require("./assets/bgpic1.jpg")}
+        source={require("./assets/image2.jpg")}
         style={{ width: deviceWidth, height: deviceHeight }}
       />
       <View
@@ -95,10 +96,24 @@ export default function Home() {
               <Icon name="search" size={22} color="white" />
             </TouchableOpacity>
           </View>
-          <Text style={{ color: "white", fontSize: 22, paddingHorizontal: 10 }}>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 25,
+              paddingHorizontal: 10,
+              marginTop: 220,
+              marginBottom: 20,
+            }}
+          >
             My Location
-            <FlatList data={cities} renderItem={() => <View></View>} />
           </Text>
+          <FlatList
+            horizontal
+            data={cities}
+            renderItem={({ item }) => (
+              <Cards name={item.name} image={item.image} />
+            )}
+          />
         </View>
       </View>
     </View>

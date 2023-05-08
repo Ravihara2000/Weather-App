@@ -11,6 +11,7 @@ import {
 } from "react-native";
 
 import Icon from "react-native-vector-icons/Ionicons";
+
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { deviceHeight, deviceWidth } from "./Dimensions";
 import Cards from "./Cards";
@@ -18,6 +19,7 @@ const color = {
   white: "#FFFFFF",
 };
 export default function Home(props) {
+  const navigation = useNavigation();
   const [city, setCity] = useState("");
 
   const cities = [
@@ -47,6 +49,7 @@ export default function Home(props) {
       <ImageBackground
         source={require("./assets/image2.jpg")}
         style={{ width: deviceWidth, height: deviceHeight }}
+        imageStyle={{ opacity: 0.6, backgroundColor: "black" }}
       />
       <View
         style={{
@@ -117,7 +120,11 @@ export default function Home(props) {
             horizontal
             data={cities}
             renderItem={({ item }) => (
-              <Cards name={item.name} image={item.image} />
+              <Cards
+                name={item.name}
+                image={item.image}
+                navigation={props.navigation}
+              />
             )}
           />
         </View>

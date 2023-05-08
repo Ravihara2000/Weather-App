@@ -1,10 +1,18 @@
 import { View, Text, ImageBackground, Image } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import { deviceHeight, deviceWidth } from "./Dimensions";
-
+import { API_KEY } from "./Constants";
 export default function Details(props) {
   const { name } = props.route.params;
+  useEffect(() => {
+    fetch(
+      "https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}"
+    )
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground

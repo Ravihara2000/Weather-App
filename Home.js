@@ -98,9 +98,7 @@ export default function Home(props) {
               style={{ paddingHorizontal: 10, color: "white", fontSize: 16 }}
             />
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("Details", { name: city })
-              }
+              onPress={() => navigation.navigate("Details", { name: city })}
             >
               <Icon name="search" size={22} color="white" />
             </TouchableOpacity>

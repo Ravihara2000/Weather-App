@@ -16,7 +16,18 @@ export default function Details(props) {
       .then((res) => setDate(res))
       .catch((err) => console.log(err));
   }, []);
-
+  const Data = ({ title, value }) => (
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <Text style={{ color: "gray", fontSize: 22 }}>{title}</Text>
+      <Text style={{ color: "white", fontSize: 22 }}>{value}</Text>
+    </View>
+  );
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -57,9 +68,23 @@ export default function Details(props) {
         >
           <View>
             <Text style={{ color: "white", fontSize: 40 }}>{name}</Text>
-            <Text style={{ fontSize: 22, color: "white" }}>
+            <Text style={{ fontSize: 22, color: "white", textAlign: "center" }}>
               {date["weather"][0]["main"]}
             </Text>
+          </View>
+          <Text style={{ color: "white", fontSize: 64 }}>
+            {(data["main"]["temp"] - 273).toFixed(2)}&deg; C
+          </Text>
+          <View>
+            <Text style={{ color: "white", fontSize: 22, marginBottom: 16 }}>
+              Weather Details
+            </Text>
+            <View style={{ width: deviceWidth - 60 }}>
+              <Data value={data["wind"]["speed"]} title="Wind" />
+              <Data value={data["main"]["pressure"]} title="Pressure" />
+              <Data value={`${data["main"]["humidity"]}%`} title="Humidity" />
+              <Data value={data["visibility"]} title="Visibility" />
+            </View>
           </View>
         </View>
       ) : null}

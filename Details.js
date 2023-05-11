@@ -5,7 +5,7 @@ import { deviceHeight, deviceWidth } from "./Dimensions";
 import { API_KEY } from "./Constants";
 
 export default function Details(props) {
-  const { date, setDate } = useState();
+  const { data, setData } = useState();
   const { name } = props.route.params;
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Details(props) {
       `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}`
     )
       .then((res) => res.json())
-      .then((res) => setDate(res))
+      .then((res) => setData(res))
       .catch((err) => console.log(err));
   }, []);
   const Data = ({ title, value }) => (
@@ -57,7 +57,7 @@ export default function Details(props) {
           />
         </View>
       </View>
-      {date ? (
+      {data ? (
         <View
           style={{
             flexDirection: "column",
@@ -69,7 +69,7 @@ export default function Details(props) {
           <View>
             <Text style={{ color: "white", fontSize: 40 }}>{name}</Text>
             <Text style={{ fontSize: 22, color: "white", textAlign: "center" }}>
-              {date["weather"][0]["main"]}
+              {data["weather"][0]["main"]}
             </Text>
           </View>
           <Text style={{ color: "white", fontSize: 64 }}>

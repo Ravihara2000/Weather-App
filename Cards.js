@@ -6,7 +6,7 @@ export default function Cards({ name, image }) {
   return (
     <TouchableOpacity
       style={{ marginHorizontal: 10 }}
-      onPress={() => NavigationPreloadManager.navigate("Details", { name })}
+      onPress={() => navigation.navigate("Details", { name })}
     >
       <ImageBackground
         source={image}

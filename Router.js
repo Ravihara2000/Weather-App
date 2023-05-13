@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./Home.js";
 import Details from "./Details.js";
+import Cards from "./Cards.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ export default function Router() {
           options={{ headerShown: false }}
           name="Details"
           component={Details}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Cards"
+          component={Cards}
         />
       </Stack.Navigator>
     </NavigationContainer>

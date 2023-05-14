@@ -5,7 +5,7 @@ import { deviceHeight, deviceWidth } from "./Dimensions";
 import { API_KEY } from "./Constants";
 
 export default function Details(props) {
-  const { data, setData } = useState();
+  const [data, setData] = useState(null);
   const { name } = props.route.params;
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export default function Details(props) {
       .then((res) => setData(res))
       .catch((err) => console.log(err));
   }, []);
+
   const Data = ({ title, value }) => (
     <View
       style={{

@@ -16,7 +16,6 @@ export default function Cards({ name, image }) {
       <View style={{ position: "absolute", height: "100%", width: "100%" }}>
         <Text
           style={{
-            fontSize: 23,
             width: "100%",
             height: "100%",
             textAlign: "center",

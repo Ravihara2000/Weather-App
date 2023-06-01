@@ -5,7 +5,7 @@ import { deviceHeight, deviceWidth } from "./Dimensions";
 import { API_KEY } from "./Constants";
 
 export default function Details(props) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
   const { name } = props.route.params;
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Details(props) {
     </View>
   );
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <ImageBackground
         source={require("./assets/image2.jpg")}
         style={{ width: deviceWidth, height: deviceHeight }}
@@ -54,7 +54,7 @@ export default function Details(props) {
           <Icon name="menu" size={46} color="white" />
           <Image
             source={require("./assets/user.jpg")}
-            style={{ marginTop: 26, height: 46, width: 46, borderRadius: 50 }}
+            style={{ height: 46, width: 46, borderRadius: 50 }}
           />
         </View>
       </View>

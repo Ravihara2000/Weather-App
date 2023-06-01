@@ -2,7 +2,7 @@ import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
 import React from "react";
 import { deviceHeight, deviceWidth } from "./Dimensions";
 
-export default function Cards({ name, image }) {
+export default function Cards({ name, image, navigation }) {
   return (
     <TouchableOpacity
       style={{ marginHorizontal: 10 }}
